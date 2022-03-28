@@ -1,0 +1,321 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Credit</title>
+                <style>
+                    @font-face {
+                      font-family: 'Source Sans Pro', sans-serif;
+                      url: 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300';
+                    }   
+                    
+                    .clearfix:after {
+                      content: "";
+                      display: table;
+                      clear: both;
+                    }
+
+                    a {
+                      color: #0087C3;
+                      text-decoration: none;
+                    }
+
+                    body {
+                      position: relative;
+                      width: 21cm;  
+                      height: 29.7cm; 
+                      margin: 0 auto; 
+                      color: #555555;
+                      background: #FFFFFF; 
+                      font-family: Arial, sans-serif; 
+                      font-size: 10px; 
+                      font-family: SourceSansPro;
+                    }
+
+                    header {
+                      padding: 10px 0;
+                      margin-bottom: 20px;
+                      border-bottom: 1px solid #AAAAAA;
+                    }
+
+                    #logo {
+                      float: left;
+                      margin-top: 0px;
+                    }
+
+                    #logo img {
+                      height: 140px;
+                    }
+
+                    #company {
+                      float: right;
+                      text-align: right;
+                    }
+
+
+                    #details {
+                      margin-bottom: 50px;
+                    }
+
+                    #client {
+                      padding-left: 6px;
+                      border-left: 6px solid #0087C3;
+                      float: left;
+                      font-size: 1.4em;
+                      text-align: left;
+                    }
+
+                    #client .to {
+                      color: #777777;
+                    }
+
+                    h2.name {
+                      font-size: 1.4em;
+                      font-weight: normal;
+                      margin: 0;
+                    }
+
+                    #invoice {
+                      float: right;
+                      text-align: right;
+                    }
+
+                    #invoice h1 {
+                      color: #0087C3;
+                      font-size: 2.4em;
+                      line-height: 1em;
+                      font-weight: normal;
+                      margin: 0  0 10px 0;
+                    }
+
+                    #invoice .date {
+                      font-size: 1.1em;
+                      color: #777777;
+                    }
+
+                    table {
+                      border-collapse: collapse;
+                      border-spacing: 0;
+                      margin-bottom: 20px;
+                    }
+
+                    table th{
+                      padding: 20px;
+                      background: #EEEEEE;
+                      text-align: center;
+                      border-bottom: 1px solid #FFFFFF;
+                    }
+                    
+                    table td {
+                      padding: 10px;
+                      background: #EEEEEE;
+                      text-align: center;
+                      border-bottom: 1px solid #FFFFFF;
+                    }
+
+                    table th {
+                      white-space: nowrap;        
+                      font-weight: normal;
+                    }
+
+                    table td {
+                      text-align: right;
+                    }
+
+                    table td h3{
+                      color: #57B223;
+                      font-size: 1.2em;
+                      font-weight: normal;
+                      margin: 0 0 0.2em 0;
+                    }
+
+                    table .no {
+
+                    }
+
+                    table .desc {
+                      text-align: left;
+                    }
+
+                    table .unit {
+                      background: #DDDDDD;
+                    }
+
+                    table .qty {
+                    }
+
+                    table .total {
+                      background: #DDDDDD;
+                    }
+
+                    table td.unit,
+                    table td.qty,
+                    table td.total {
+                      font-size: 1.2em;
+                    }
+
+                    table tbody tr:last-child td {
+                      border: none;
+                    }
+
+                    table tfoot td {
+                      padding: 10px 20px;
+                      background: #FFFFFF;
+                      border-bottom: none;
+                      font-size: 1.2em;
+                      white-space: nowrap; 
+                      border-top: 1px solid #AAAAAA; 
+                    }
+
+                    table tfoot tr:first-child td {
+                      border-top: none; 
+                    }
+
+                    table tfoot tr:last-child td {
+                      color: #57B223;
+                      font-size: 1.4em;
+                      border-top: 1px solid #57B223; 
+
+                    }
+
+                    table tfoot tr td:first-child {
+                      border: none;
+                    }
+
+                    #thanks{  
+                      margin-bottom: 50px;
+                    }
+
+                    #notices{
+                      padding-left: 6px;
+                      border-left: 6px solid #0087C3;  
+                    }
+
+                    #notices .notice {
+                      font-size: 1.2em;
+                    }
+
+                    footer {
+                      color: #777777;
+                      width: 100%;
+                      height: 30px;
+                      position: absolute;
+                      bottom: 0;
+                      border-top: 1px solid #AAAAAA;
+                      padding: 8px 0;
+                      text-align: center;
+                    }
+                </style>
+	</head>
+	<body>
+            <header class="clearfix"> 
+                <table style="width: 100%">
+                    <tr>					
+                        <td style="background: white;">
+                            <h2>{% trans %}credit{% endtrans %}: {{ credit.creditNumber }}</h2>
+                        </td>
+                        <td style="background: white;">
+                            {% trans %}invoice.created{% endtrans %}: {{ credit.created | craue_date }}
+                        </td>							
+                    </tr>
+                </table>
+                <table style="width: 75%; margin-left: 25%;">
+                    <tr>
+                        <td style="background: white;">
+                            <div id="client">
+                              <h2 class="name">{{ credit.customer.invoicename }}</h2>
+                              <div class="address">{{ credit.customer.adress1 }} {{ credit.customer.adress2 }}</div>
+                              <div class="address">{{ credit.customer.adress3 }} </div>
+                              <div class="address">{{ credit.customer.zip }} {{ credit.customer.city }}</div>
+                              <div class="email">{{ credit.customer.vat }}</div>
+                              <div class="email">{{ credit.reference }}</div>
+                              <div class="email"><a href="mailto:{{ credit.customer.email }}">{{ credit.customer.email }}</a></div>
+                            </div>
+                        </td>
+                        <td style="background: white;">
+                            <div id="company">
+                              <h2 class="name">TIME IS MONEY BVBA</h2>
+                              <div>Sluisvijverstraat 31<br>1742 Sint-Katherina-Lombeek (Ternat)</div>
+                              <div>BE0470.025.871</div>
+                              <div>{% trans %}invoice.contact{% endtrans %}: Roel Marissen</div>
+                              <div><a href="mailto:info@timeismoney.be">info@timeismoney.be</a></div>
+                            </div>                        
+                        </td>
+                    </tr>
+                </table>
+            </header>
+            <main>
+                <table style="width: 100%">
+                    <thead>
+                        <tr> 
+                            <th class="desc">{% trans %}invoice.table.product{% endtrans %}</th>
+                            <th class="unit">{% trans %}invoice.table.price{% endtrans %}</th>
+                            <th class="qty">{% trans %}invoice.table.quantity{% endtrans %}</th>
+                            <th class="total">{% trans %}invoice.table.total{% endtrans %}</th>
+                            <th class="no">{% trans %}invoice.table.vat{% endtrans %}</th>                               
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for line in credit.lines %}
+                            <tr>
+                                <td class="desc">{{ line.name }}</td>
+                                <td class="unit">{{ line.price | craue_currency('EUR', 'fr-BE') }}</td>                                       
+                                <td class="qty">{{ line.quantity }}</td>
+                                <td class="total">{{ (line.price * line.quantity) | craue_currency('EUR', 'fr-BE') }}</td> 
+                                <td class="no">{{ line.taxrate*100 }}</td>                                
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <td colspan="1"></td>
+                        <td colspan="2">{% trans %}invoice.total{% endtrans %}</td>
+                        <td>{{ credit.total | craue_currency('EUR', 'fr-BE') }}</td>
+                        <td colspan="1"></td>
+                      </tr>                          
+                    </tfoot>                        
+                </table>
+                <table style="width: 50%; border: 1px solid #AAAAAA">
+                    <tbody>
+                        {% if credit.getTotalVAT('0.00') < 0 %}
+                            <tr style="border: 1px solid #AAAAAA">
+                              <td style="background: white;">{% trans %}invoice.vat.0{% endtrans %}</td>
+                              <td style="background: white;">{{ credit.getTotalWithoutVAT('0.00') | craue_currency('EUR', 'fr-BE') }}</td>
+                              <td style="background: white;">{{ credit.getVAT('0.00') | craue_currency('EUR', 'fr-BE') }}</td>
+                              <td style="background: white;">{{ credit.getTotalVAT('0.00') | craue_currency('EUR', 'fr-BE') }}</td>
+                            </tr>
+                        {% endif %}
+                        {% if credit.getTotalVAT('0.06') < 0 %}
+                            <tr style="border: 1px solid #AAAAAA">
+                              <td style="background: white;">{% trans %}invoice.vat.6{% endtrans %}</td>
+                              <td style="background: white;">{{ credit.getTotalWithoutVAT('0.06') | craue_currency('EUR', 'fr-BE') }}</td>
+                              <td style="background: white;">{{ credit.getVAT('0.06') | craue_currency('EUR', 'fr-BE') }}</td>
+                              <td style="background: white;">{{ credit.getTotalVAT('0.06') | craue_currency('EUR', 'fr-BE') }}</td>
+                            </tr> 
+                        {% endif %}
+                        {% if credit.getTotalVAT('0.12') < 0 %}
+                            <tr style="border: 1px solid #AAAAAA">
+                              <td style="background: white;">{% trans %}invoice.vat.12{% endtrans %}</td>
+                              <td style="background: white;">{{ credit.getTotalWithoutVAT('0.12') | craue_currency('EUR', 'fr-BE') }}</td>
+                              <td style="background: white;">{{ credit.getVAT('0.12') | craue_currency('EUR', 'fr-BE') }}</td>
+                              <td style="background: white;">{{ credit.getTotalVAT('0.12') | craue_currency('EUR', 'fr-BE') }}</td>
+                            </tr> 
+                        {% endif %}
+                        {% if credit.getTotalVAT('0.21') < 0 %}
+                            <tr style="border: 1px solid #AAAAAA">
+                              <td style="background: white;">{% trans %}invoice.vat.21{% endtrans %}</td>
+                              <td style="background: white;">{{ credit.getTotalWithoutVAT('0.21') | craue_currency('EUR', 'fr-BE') }}</td>
+                              <td style="background: white;">{{ credit.getVAT('0.21') | craue_currency('EUR', 'fr-BE') }}</td>
+                              <td style="background: white;">{{ credit.getTotalVAT('0.21') | craue_currency('EUR', 'fr-BE') }}</td>
+                            </tr> 
+                        {% endif %}
+                    </tbody>
+                </table>            
+            </main>
+            <hr>
+            <p style="text-align: center;">
+              O.N. : BE0470.025.871 - ING : BE62 3900 5330 2161 - H.R. Brussel 639401
+            </p>            
+    	</body>
+</html>    
+<p style="page-break-after:always;"></p> 

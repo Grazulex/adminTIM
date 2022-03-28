@@ -1,0 +1,168 @@
+parameters:
+    app_bundle.block.recent_logistics.class: AppBundle\Block\RecentLogisticsBlockService
+    
+services:   
+    admin.block.logistic:
+        class: AppBundle\Block\LogisticBlockService
+        tags:
+            - { name: sonata.block }
+        arguments: ['admin.block.logistic', "@templating", @doctrine.orm.entity_manager, %max_item_dashboard%]    
+    admin.block.invoice:
+        class: AppBundle\Block\InvoiceBlockService
+        tags:
+            - { name: sonata.block }
+        arguments: ['admin.block.invoice', "@templating", @doctrine.orm.entity_manager, %max_item_dashboard%]  
+    admin.block.credit:
+        class: AppBundle\Block\CreditBlockService
+        tags:
+            - { name: sonata.block }
+        arguments: ['admin.block.credit', "@templating", @doctrine.orm.entity_manager, %max_item_dashboard%]        
+    admin.block.cash:
+        class: AppBundle\Block\CashBlockService
+        tags:
+            - { name: sonata.block }
+        arguments: ['admin.block.cash', "@templating"]         
+    admin.block.user:
+        class: AppBundle\Block\UserBlockService
+        tags:
+            - { name: sonata.block }
+        arguments: ['admin.block.user', "@templating"]   
+    admin.block.item:
+        class: AppBundle\Block\ItemBlockService
+        tags:
+            - { name: sonata.block }
+        arguments: ['admin.block.item', "@templating"]         
+        
+    admin.item.category:
+        class: AppBundle\Admin\ItemCategoryAdmin
+        arguments: [~, AppBundle\Entity\ItemCategory, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: "Category", group: Items }  
+        calls:
+            - [ setTranslationDomain, [AppBundle]]             
+    admin.item:
+        class: AppBundle\Admin\ItemAdmin
+        arguments: [~, AppBundle\Entity\Item, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: "Item", group: Items }         
+        calls:
+            - [ setTranslationDomain, [AppBundle]]              
+    admin.invoice.all:
+        class: AppBundle\Admin\InvoiceAllAdmin
+        arguments: [~, AppBundle\Entity\Invoice, AppBundle:Invoice]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: "Invoice all", group: Invoices }  
+        calls:
+            - [ setTranslationDomain, [AppBundle]]      
+    admin.invoice.draft:
+        class: AppBundle\Admin\InvoiceDraftAdmin
+        arguments: [~, AppBundle\Entity\Invoice, AppBundle:Invoice]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: "Invoice draft", group: Invoices }  
+        calls:
+            - [ setTranslationDomain, [AppBundle]]            
+    admin.invoice.open:
+        class: AppBundle\Admin\InvoiceOpenAdmin
+        arguments: [~, AppBundle\Entity\Invoice, AppBundle:Invoice]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: "Invoice open", group: Invoices } 
+        calls:
+            - [ setTranslationDomain, [AppBundle]] 
+    admin.invoice.tolate:
+        class: AppBundle\Admin\InvoiceTolateAdmin
+        arguments: [~, AppBundle\Entity\Invoice, AppBundle:Invoice]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: "Invoice to late", group: Invoices }  
+        calls:
+            - [ setTranslationDomain, [AppBundle]]             
+    admin.credit.all:
+        class: AppBundle\Admin\CreditAllAdmin
+        arguments: [~, AppBundle\Entity\Credit, AppBundle:Credit]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: "Credit all", group: Credits }  
+        calls:
+            - [ setTranslationDomain, [AppBundle]]            
+    admin.credit.draft:
+        class: AppBundle\Admin\CreditDraftAdmin
+        arguments: [~, AppBundle\Entity\Credit, AppBundle:Credit]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: "Credit draft", group: Credits }  
+        calls:
+            - [ setTranslationDomain, [AppBundle]]   
+    admin.credit.open:
+        class: AppBundle\Admin\CreditOpenAdmin
+        arguments: [~, AppBundle\Entity\Credit, AppBundle:Credit]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: "Credit open", group: Credits } 
+        calls:
+            - [ setTranslationDomain, [AppBundle]] 
+    admin.user:
+        class: AppBundle\Admin\UserAdmin
+        arguments: [~, AppBundle\Entity\User, AppBundle:User]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: User, group: Users }     
+        calls:
+            - [ setTranslationDomain, [AppBundle]]
+    admin.customer:
+        class: AppBundle\Admin\CustomerAdmin
+        arguments: [~, AppBundle\Entity\Customer, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Customer, group: Users }
+        calls:
+            - [ setTranslationDomain, [AppBundle]]
+    admin.company:
+        class: AppBundle\Admin\CompanyAdmin
+        arguments: [~, AppBundle\Entity\Company, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Company, group: Users }     
+        calls:
+            - [ setTranslationDomain, [AppBundle]]                
+    admin.location:
+        class: AppBundle\Admin\LocationAdmin
+        arguments: [~, AppBundle\Entity\Location, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Location, group: Users }      
+        calls:
+            - [ setTranslationDomain, [AppBundle]]             
+    admin.invoice.line:
+        class: AppBundle\Admin\InvoiceLineAdmin
+        arguments: [~, AppBundle\Entity\InvoiceLine, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: InvoiceLine }    
+        calls:
+            - [ setTranslationDomain, [AppBundle]]              
+    admin.credit.line:
+        class: AppBundle\Admin\CreditLineAdmin
+        arguments: [~, AppBundle\Entity\CreditLine, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: CreditLine }   
+        calls:
+            - [ setTranslationDomain, [AppBundle]]              
+    admin.cash:
+        class: AppBundle\Admin\CashAdmin
+        arguments: [~, AppBundle\Entity\Cash, AppBundle:Cash]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Cash, group: Cash  }   
+        calls:
+            - [ setTranslationDomain, [AppBundle]]              
+    admin.logistic.open:
+        class: AppBundle\Admin\LogisticOpenAdmin
+        arguments: [~, AppBundle\Entity\Logistic, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: "Logistics open", group: Logistics }  
+        calls:
+            - [ setTranslationDomain, [AppBundle]]  
+    admin.logistic.close:
+        class: AppBundle\Admin\LogisticCloseAdmin
+        arguments: [~, AppBundle\Entity\Logistic, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: "Logistics close", group: Archives }  
+        calls:
+            - [ setTranslationDomain, [AppBundle]]            
+    admin.logistic.line:
+        class: AppBundle\Admin\LogisticLineAdmin
+        arguments: [~, AppBundle\Entity\LogisticLine, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Lines }  
+        calls:
+            - [ setTranslationDomain, [AppBundle]]              

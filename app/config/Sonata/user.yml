@@ -1,0 +1,29 @@
+sonata_user:
+    security_acl: false
+    manager_type: orm   
+    class:
+        user:         AppBundle\Entity\User
+        group:        Application\Sonata\UserBundle\Entity\Group
+
+    profile:  # Profile Form (firstname, lastname, etc ...)
+        form:
+            type:               sonata_user_profile
+            handler:            sonata.user.profile.form.handler.default
+            name:               sonata_user_profile_form
+            validation_groups:  [Profile]    
+            
+fos_user:
+    profile:
+        form:
+            validation_groups:  [Default]
+    registration:
+        form:
+            validation_groups:  [Default]
+    db_driver: orm 
+    firewall_name: main
+    user_class: AppBundle\Entity\User
+    group:
+        group_class:   Application\Sonata\UserBundle\Entity\Group
+        group_manager: sonata.user.orm.group_manager 
+    service:
+        user_manager: sonata.user.orm.user_manager              

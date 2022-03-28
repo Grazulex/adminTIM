@@ -1,0 +1,15 @@
+parameters:
+    app.admin.filter.number_range: AppBundle\Filter\NumberRangeFilter
+    app.admin.form.number_range: AppBundle\Form\NumberRangeType
+    
+services: 
+#Filter service
+    app.admin.filter.type.number_range:
+        class: %app.admin.filter.number_range%
+        tags:
+            - { name: sonata.admin.filter.type, alias: doctrine_orm_number_range }
+#Form service
+    app.admin.form.type.number_range:
+        class: %app.admin.form.number_range%
+        tags:
+            - { name: form.type, alias: app_admin_type_number_range }

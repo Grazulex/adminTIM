@@ -1,0 +1,49 @@
+line.new_reminder_3.name: 'Frais supplémentaire rappel'
+line.new_reminder_4.name: 'Frais supplémentaire rappel'
+mail.footer.company: 'Time is Money bvba'
+mail.footer.disclaimer: __mail.footer.disclaimer
+invoice: Facture
+invoice.recipient: Destinataire
+invoice.title: Titre
+invoice.created: Date
+invoice.term: 'Date d''échéance'
+invoice.total: Total
+invoice.table.product: Produit
+invoice.table.price: Prix
+invoice.table.vat: TVA
+invoice.table.quantity: Quantité
+invoice.table.total: Total
+invoice.vat.0: 'TVA 0%'
+invoice.vat.6: 'TVA 6%'
+invoice.vat.12: 'TVA 12%'
+invoice.vat.21: 'TVA 21%'
+bank.number: IBAN
+invoice.communication: Communication
+invoice.disclaimer: 'ledere betwisting valt onder de bevoegdheid van de rechtbanken van Brussel of de rechtbanken volgens de keuze van de bvba ''Time is Money''. Bij niet betaling van de factuur zal er van rechtswege en zonder andere formaliteiten een verwijlintrest van 10% jaarlijks verschildigd zijn, + een vergoeding van 15% van het totale bedrag van de factuur met een minimum van 150 Euro.'
+link_action_paid: Paid
+link_action_print: Print
+link_action_reminder: Reminder
+link_action_send: 'Mail & activer'
+link_action_credited: Credit
+link_action_invoiced: Invoice
+invoice.total.to.pay: 'Total à payer'
+credit: 'Note de credit'
+invoice.contact: 'Représenté par'
+link_action_erase: Effacer
+link_action_send_active: 'Imprimer & activer'
+link_action_send_erase: Effacer
+Add: Ajouter
+List: Liste
+draft: Brouillon
+'No data available.': 'Aucunes données'
+'List draft': 'Liste brouillon'
+'List open': 'Liste ouvert'
+'List close': 'liste fermé'
+'List to late': 'liste trop tard'
+Category: Catégorie
+Item: Produits
+open: Ouvert
+Company: Société
+User: Utilisateur
+'Security group': 'Group de sécurité'
+Location: Adresse

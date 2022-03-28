@@ -1,0 +1,8 @@
+/web/bundles/
+/var/logs/
+/var/sessions/
+/vendor/
+/app/config/config_prod.yml
+/nbproject/
+/var/cache/
+/doc/

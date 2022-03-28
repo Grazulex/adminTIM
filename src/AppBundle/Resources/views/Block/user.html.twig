@@ -1,0 +1,47 @@
+{% extends sonata_block.templates.block_base %}
+ 
+{% block block %}
+    <div class="box box-success">
+        <div class="box-header with-border">
+            <h3 class="box-title"><i class="fa fa-users"></i> {{ settings.title | trans() }}</h3>
+        </div>
+
+        <div class="box-body">
+            <table class="table">
+                <tr>
+                    <td>
+                        {{ 'Company' | trans() }}
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-sm" title="{{ 'Add' | trans() }}" href="{{ path('admin_app_company_create') }}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+                    </td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" title="{{ 'List' | trans() }}" href="{{ path('admin_app_company_list') }}"><span class="glyphicon glyphicon-align-center" aria-hidden="true"></span></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {{ 'Customer' | trans() }}
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-sm" title="{{ 'Add' | trans() }}" href="{{ path('admin_app_customer_create') }}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+                    </td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" title="{{ 'List' | trans() }}" href="{{ path('admin_app_customer_list') }}"><span class="glyphicon glyphicon-align-center" aria-hidden="true"></span></a>
+                    </td>
+                </tr>     
+                <tr>
+                    <td>
+                        {{ 'Security group' | trans() }}
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-sm" title="{{ 'Add' | trans() }}" href="{{ path('admin_sonata_user_group_create') }}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+                    </td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" title="{{ 'List' | trans() }}" href="{{ path('admin_sonata_user_group_list') }}"><span class="glyphicon glyphicon-align-center" aria-hidden="true"></span></a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+{% endblock %}

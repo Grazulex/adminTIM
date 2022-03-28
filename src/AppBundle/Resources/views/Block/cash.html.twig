@@ -1,0 +1,16 @@
+{% extends sonata_block.templates.block_base %}
+ 
+{% block block %}
+    <div class="box box-success">
+        <div class="box-header with-border">
+            <h3 class="box-title"><i class="fa fa-book"></i> {{ settings.title | trans() }}</h3>
+        </div>
+
+        <div class="box-body">
+            <div class="text-right">
+                <a class="btn btn-success btn-sm" title="{{ 'Add' | trans() }}" href="{{ path('admin_app_cash_create') }}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+                <a class="btn btn-primary btn-sm" title="{{ 'List' | trans() }}" href="{{ path('admin_app_cash_list') }}"><span class="glyphicon glyphicon-align-center" aria-hidden="true"></span></a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

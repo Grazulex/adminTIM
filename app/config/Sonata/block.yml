@@ -1,0 +1,24 @@
+sonata_block: 
+    default_contexts: [cms]
+    blocks:      
+        # Enable the SonataAdminBundle block
+        sonata.admin.block.admin_list:
+            contexts:   [admin]   
+        sonata.admin.block.search_result:
+            contexts:   [admin]    
+        sonata.admin_doctrine_orm.block.audit:
+            contexts:   [admin]            
+        sonata.block.service.text:
+        sonata.block.service.action:
+        sonata.block.service.rss:  
+        # Your other blocks
+        sonata.user.block.menu:    # used to display the menu in profile pages
+        sonata.user.block.account:  
+        sonata.timeline.block.timeline:
+            contexts:   [admin]  
+        admin.block.logistic: ~
+        admin.block.invoice: ~
+        admin.block.credit: ~
+        admin.block.cash: ~ 
+        admin.block.user: ~ 
+        admin.block.item: ~ 

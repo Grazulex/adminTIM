@@ -1,0 +1,27 @@
+# This file is auto-generated during the composer install
+# jms
+parameters:
+    database_driver: pdo_mysql
+    database_host: localhost
+    database_port: 3306
+    database_name: admintimeismoney
+    database_user: root
+    database_password: root
+    old_database_host: localhost
+    old_database_port: 3306
+    old_database_name: timeismoney
+    old_database_user: root
+    old_database_password: root
+    mailer_transport: smtp
+    mailer_host: in-v3.mailjet.com
+    mailer_user: e4ded174c49c40ea85a622b752f06663
+    mailer_password: 0e540f9092ef40f6131d8ca746774d39
+    secret: ea542fa401465cd5feb85e043533a40b90ae1a1d
+    craue_twig_extensions.formatNumber.currency: EUR
+    craue_twig_extensions.changeLanguage.availableLocales:
+        - fr
+        - en
+        - nl
+    craue_twig_extensions.changeLanguage.showForeignLanguageNames: true
+    craue_twig_extensions.changeLanguage.showFirstUppercase: false
+    max_item_dashboard: 25

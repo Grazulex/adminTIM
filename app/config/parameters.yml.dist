@@ -1,0 +1,33 @@
+# This file is a "template" of what your parameters.yml file should look like
+# Set parameters here that may be different on each deployment target of the app, e.g. development, staging, production.
+# http://symfony.com/doc/current/best_practices/configuration.html#infrastructure-related-configuration
+parameters:
+    database_host:     127.0.0.1
+    database_port:     8889
+    database_name:     symfony
+    database_user:     root
+    database_password: ~
+
+    old_database_host: localhost
+    old_database_port: 3306
+    old_database_name: timeismoney
+    old_database_user: timeismoney
+    old_database_password: Katleen2229!  
+
+    # You should uncomment this if you want use pdo_sqlite
+    # database_path: "%kernel.root_dir%/data.db3"
+
+    mailer_transport: smtp
+    mailer_host: in-v3.mailjet.com
+    mailer_user: e4ded174c49c40ea85a622b752f06663
+    mailer_password: 0e540f9092ef40f6131d8ca746774d39
+
+    craue_twig_extensions.formatNumber.currency: EUR
+    craue_twig_extensions.changeLanguage.availableLocales: [fr, en, nl]
+    craue_twig_extensions.changeLanguage.showForeignLanguageNames: true
+    craue_twig_extensions.changeLanguage.showFirstUppercase: false
+
+    # A secret key that's used to generate certain security-related tokens
+    secret:            ThisTokenIsNotSoSecretChangeIt
+
+    max_item_dashboard: 25

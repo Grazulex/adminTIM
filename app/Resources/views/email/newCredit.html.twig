@@ -1,0 +1,7 @@
+{% extends ':themes/mail:oneColumn.html.twig' %}
+{% block mail_title %}
+    {% trans with {'%creditnumber%': credit.creditNumber} from "mail" %}mail.new_credit.title{% endtrans %}
+{% endblock %}
+{% block mail_body %}
+    {% trans with {'%user%': credit.customer.name } from "mail" %}mail.new_credit.body{% endtrans %}
+{% endblock %}

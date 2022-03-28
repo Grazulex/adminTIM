@@ -1,0 +1,177 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: services.yml }
+    - { resource: Sonata/user.yml }
+    - { resource: Sonata/block.yml }
+    - { resource: Sonata/admin.yml }
+    - { resource: Sonata/intl.yml }
+    - { resource: Sonata/timeline.yml } 
+    
+    - { resource: "@AppBundle/Resources/config/admin.yml" }
+    - { resource: "@AppBundle/Resources/config/filter.yml" }    
+    - { resource: "@FrontBundle/Resources/config/services.yml" }
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+    locale: en
+    sonata.user.admin.user.class: AppBundle\Admin\UserAdmin    
+    application_version:  v2.0.0
+
+framework:
+    #esi:             ~
+    translator:       { fallback: %locale% }
+    default_locale: %locale%
+    secret:          "%secret%"
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: ~
+    form:            ~
+    csrf_protection: ~
+    validation:      { enable_annotations: true }
+    #serializer:      { enable_annotations: true }
+    templating:
+        engines: ['twig']      
+        #assets_version: SomeVersionScheme
+    trusted_hosts:   ~
+    trusted_proxies: ~
+    session:
+        # http://symfony.com/doc/current/reference/configuration/framework.html#handler-id
+        handler_id:  session.handler.native_file
+        save_path:   "%kernel.root_dir%/../var/sessions/%kernel.environment%"
+    fragments:       ~
+    http_method_override: true
+    assets: ~
+
+# Twig Configuration
+twig:    
+    globals:
+        max_item_dashboard: %max_item_dashboard%    
+    debug:            "%kernel.debug%"
+    strict_variables: "%kernel.debug%"  
+    form_themes:
+        - 'SonataCoreBundle:Form:datepicker.html.twig'    
+        - 'AppBundle:Form:fields.html.twig' 
+    form:
+        resources:        
+            - 'A2lixTranslationFormBundle::default.html.twig'
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        types:
+            json: Sonata\Doctrine\Types\JsonType         
+        default_connection: default
+        connections:
+            default:        
+                driver:   pdo_mysql
+                host:     "%database_host%"
+                port:     "%database_port%"
+                dbname:   "%database_name%"
+                user:     "%database_user%"
+                password: "%database_password%"
+                charset:  UTF8  
+                mapping_types:
+                    enum: string
+            old:        
+                driver:   pdo_mysql
+                host:     "%old_database_host%"
+                port:     "%old_database_port%"
+                dbname:   "%old_database_name%"
+                user:     "%old_database_user%"
+                password: "%old_database_password%"
+                charset:  UTF8   
+                mapping_types:
+                    enum: string
+        # if using pdo_sqlite as your database driver:
+        #   1. add the path in parameters.yml
+        #     e.g. database_path: "%kernel.root_dir%/data/data.db3"
+        #   2. Uncomment database_path in parameters.yml.dist
+        #   3. Uncomment next line:
+        #     path:     "%database_path%"
+
+    orm:
+        default_entity_manager: default
+        auto_generate_proxy_classes: %kernel.debug%
+        entity_managers:
+            default:
+                connection: default
+                auto_mapping: true
+                mappings:
+                    SonataUserBundle: ~
+                    FOSUserBundle: ~                     
+                    gedmo_translatable:
+                        type: annotation
+                        prefix: Gedmo\Translatable\Entity
+                        dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translatable/Entity"
+                        alias: GedmoTranslatable # this one is optional and will default to the name set for the mapping
+                        is_bundle: false
+                    gedmo_loggable:
+                        type: annotation
+                        prefix: Gedmo\Loggable\Entity
+                        dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Loggable/Entity"
+                        alias: GedmoLoggable # this one is optional and will default to the name set for the mapping
+                        is_bundle: false    
+                    gedmo_tree:
+                        type: annotation
+                        prefix: Gedmo\Tree\Entity
+                        dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Tree/Entity"
+                        alias: GedmoTree # this one is optional and will default to the name set for the mapping
+                        is_bundle: false  
+                    gedmo_translator:
+                        type: annotation
+                        prefix: Gedmo\Translator\Entity
+                        dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translator/Entity"
+                        alias: GedmoTranslator # this one is optional and will default to the name set for the mapping
+                        is_bundle: false 
+            old:
+                connection: old           
+
+stof_doctrine_extensions:
+    default_locale: en_GB
+    translation_fallback: true
+    uploadable:
+            default_file_path: %kernel.root_dir%/../web/media
+            mime_type_guesser_class: Stof\DoctrineExtensionsBundle\Uploadable\MimeTypeGuesserAdapter
+            default_file_info_class: Stof\DoctrineExtensionsBundle\Uploadable\UploadedFileInfo
+    orm:
+        default:
+            tree: true
+            timestampable: true
+            blameable: true
+            sluggable: true
+            loggable: true
+            tree: true
+            translatable: true
+            uploadable: true           
+
+# Swiftmailer Configuration
+swiftmailer:
+    transport: "%mailer_transport%"
+    host:      "%mailer_host%"
+    username:  "%mailer_user%"
+    password:  "%mailer_password%"
+    port:      587
+                        
+knp_snappy:
+    pdf:
+        enabled:    true
+        #binary:     %kernel.root_dir%/../vendor/bin/wkhtmltopdf-amd64
+        binary: wkhtmltopdf
+        options:    []
+    image:
+        enabled:    true
+        #binary:     %kernel.root_dir%/../vendor/bin/wkhtmltoimage-amd64
+        binary: wkhtmltoimage
+        options:    []    
+        
+craue_twig_extensions: ~
+
+a2lix_translation_form:
+    locales: [en, fr, nl]      # [1-a]
+    default_required: true 
+    manager_registry: doctrine
+    templating: "A2lixTranslationFormBundle::default.html.twig"      # [2]
+
+       

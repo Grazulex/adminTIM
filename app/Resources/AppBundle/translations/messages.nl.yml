@@ -1,0 +1,49 @@
+line.new_reminder_3.name: 'Administratiekost aanmaningen'
+line.new_reminder_4.name: 'Administratiekost aanmaningen'
+mail.footer.company: __mail.footer.company
+mail.footer.disclaimer: __mail.footer.disclaimer
+invoice: Factuur
+invoice.recipient: __invoice.recipient
+invoice.title: Title
+invoice.created: Datum
+invoice.term: Vervaldatum
+invoice.total: Totaal
+invoice.table.product: Naam
+invoice.table.price: Prijs
+invoice.table.vat: BTW
+invoice.table.quantity: Hoeveelheid
+invoice.table.total: Totaal
+invoice.vat.0: 'BTW 0%'
+invoice.vat.6: 'BTW 6%'
+invoice.vat.12: 'BTW 12%'
+invoice.vat.21: 'BTW 21%'
+bank.number: Rekeningnummer
+invoice.communication: Vermelding
+invoice.disclaimer: 'ledere betwisting valt onder de bevoegdheid van de rechtbanken van Brussel of de rechtbanken volgens de keuze van de bvba ''Time is Money''. Bij niet betaling van de factuur zal er van rechtswege en zonder andere formaliteiten een verwijlintrest van 10% jaarlijks verschildigd zijn, + een vergoeding van 15% van het totale bedrag van de factuur met een minimum van 150 Euro.'
+link_action_paid: Paid
+link_action_print: Print
+link_action_reminder: Reminder
+link_action_send: 'Mail & activeert'
+link_action_credited: Credit
+link_action_invoiced: Invoice
+invoice.total.to.pay: 'Totaal te betalen'
+credit: 'Credit nota'
+invoice.contact: 'Vertegenwoordigd door'
+link_action_erase: Delete
+link_action_send_active: 'Printen & activeert'
+link_action_send_erase: Delete
+Add: Add
+List: List
+draft: Draft
+'No data available.': 'No data available.'
+'List draft': 'List draft'
+'List open': 'List open'
+'List close': 'List close'
+'List to late': 'List to late'
+Category: Category
+Item: Item
+open: Open
+Company: Company
+User: User
+'Security group': 'Security group'
+Location: Location

@@ -1,0 +1,80 @@
+sonata_admin:
+    templates:
+        dashboard: SonataAdminBundle:Core:dashboard.html.twig    
+    title:      Time is Money bvba
+    title_logo: bundles/app/img/logo.png
+    options:
+        html5_validate:       true  
+        confirm_exit:         true
+        use_select2:          true
+        use_icheck:           true
+        form_type:            standard
+        dropdown_number_groups_per_colums:  2       
+    dashboard:
+        blocks:
+            -
+                position: left
+                type: admin.block.logistic    
+            -
+                position: left
+                type: admin.block.cash    
+            -
+                position: center
+                type: admin.block.invoice    
+            -
+                position: center
+                type: admin.block.credit                 
+            -
+                position: right
+                type: admin.block.user  
+            -
+                position: right
+                type: admin.block.item                                  
+            - 
+                position: right                
+                type: sonata.timeline.block.timeline
+                settings: 
+                    context: SONATA_ADMIN
+                    template: 'AppBundle:Block:timeline.html.twig'
+                    max_per_page: %max_item_dashboard%       
+            -
+                position: bottom
+                type: sonata.block.service.text
+                settings:
+                    content: >
+                        <code>%application_version%</code>                               
+
+        groups:
+            Daily:
+                icon: '<i class="fa fa-book"></i>'
+                items:
+                    - admin.cash
+                    - admin.logistic.open               
+            Invoices:
+                icon: '<i class="fa fa-plus-square"></i>'
+                items:
+                    - admin.invoice.draft 
+                    - admin.invoice.open 
+                    - admin.invoice.tolate 
+            Credits:
+                icon: '<i class="fa fa-minus-square"></i>'
+                items:
+                    - admin.credit.draft 
+                    - admin.credit.open  
+            Datas:
+                icon: '<i class="fa fa-users"></i>'
+                items:
+                    - admin.company
+                    - admin.customer
+                    - admin.item.category
+                    - admin.item                         
+            Security:
+                icon: '<i class="fa fa-unlock"></i>'
+                items:
+                    - sonata.user.admin.group 
+            Archives:
+                icon: '<i class="fa fa-calendar"></i>'
+                items:
+                    - admin.invoice.all                     
+                    - admin.credit.all                    
+                    - admin.logistic.close                       

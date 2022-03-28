@@ -1,0 +1,25 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: localhost
+    database_port: 3306
+    database_name: admin
+    database_user: timeismoney
+    database_password: th?Fa7MjCqw4sdtX
+    old_database_host: localhost
+    old_database_port: 3306
+    old_database_name: timeismoney
+    old_database_user: timeismoney
+    old_database_password: th?Fa7MjCqw4sdtX
+    mailer_transport: smtp
+    mailer_host: pro.eu.turbo-smtp.com
+    mailer_user: info@jnkconsult.be
+    mailer_password: 4tiqhR7t
+    secret: ea542fa401465cd5feb85e043533a40b90ae1a1d
+    craue_twig_extensions.formatNumber.currency: EUR
+    craue_twig_extensions.changeLanguage.availableLocales:
+        - fr
+        - en
+        - nl
+    craue_twig_extensions.changeLanguage.showForeignLanguageNames: true
+    craue_twig_extensions.changeLanguage.showFirstUppercase: false
+    max_item_dashboard: 25

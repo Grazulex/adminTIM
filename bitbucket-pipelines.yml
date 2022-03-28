@@ -1,0 +1,20 @@
+# This is a sample build configuration for PHP.
+# Check our guides at https://confluence.atlassian.com/x/VYk8Lw for more examples.
+# Only use spaces to indent your .yml configuration.
+# -----
+# You can specify a custom docker image from Docker Hub as your build environment.
+image: phpunit/phpunit:5.0.3
+image: smartapps/bitbucket-pipelines-php-mysql
+
+pipelines:
+  default:
+    - step:
+        script:
+          - composer --version
+          - phpunit --version
+          - service mysql start
+          - mysql -h localhost --user=root --password=root -e "CREATE DATABASE admintimeismoney;" 
+          - mysql -h localhost --user=root --password=root -e "CREATE DATABASE timeismoney;" 
+          - cp app/config/parameters.yml.test app/config/parameters.yml
+          - composer install --no-interaction --no-progress --prefer-dist
+          - phpunit --configuration tests/phpunit.xml
